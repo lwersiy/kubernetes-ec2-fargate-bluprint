@@ -1,0 +1,67 @@
+Installing Kubernetes
+
+1) Provision your resources using terraform or cloudformation
+2) update your cluster using command "aws eks --region us-east-1 update-kubeconfig --name jjtech-demo-cluster"
+
+ReplicaSets
+
+--- 
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  namespace: application
+  labels:
+    app: myapp
+    run: nginx
+    env: dev
+spec:
+  # modify replicas according to your case
+  replicas: 4
+  selector:    # Required field in Replicaset
+    matchExpressions:
+      - key: app 
+        operator: In 
+        values:
+          - myapp
+          - myapp2
+    # matchLabels:
+    #   run: nginx
+    #   app: myapp
+  template:
+    metadata:
+      labels:
+        run: nginx
+        app: myapp
+        env: dev
+    spec:
+      containers:
+      - name: myapp
+        image: nginx
+        ports:
+        - name: web
+          containerPort:  80
+          protocol: TCP
+        env:
+        - name: NGX_VERSION
+          value: 1.16.1
+
+
+Navigate to the appropriate folder where you files are located.
+
+obtaining apiVersion and kind:  "kubectl api-resources"
+
+run the replicaset:
+"kubectl apply -f replication-controller-replicaset.yml"
+"kubectl get rs -n application"
+"kubectl get po -n application"
+"kubectl delete po myapp-replicaset-fj25m -n application"
+"kubectl describe po jjtech-pod -n application"
+
+"k get po -n application -o wide" ==== provide additional details of pods
+
+
+To assign a pod to a specific node, in the deployment file, under specification, indclude a key value pair nodeName and the name of node
+nodeName: ip-10-20-100-222.ec2.internal
+

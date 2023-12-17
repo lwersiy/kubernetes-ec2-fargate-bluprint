@@ -1,0 +1,12 @@
+Links: 
+github repo :  https://github.com/anselmenumbisia/k8s-jjtech.git
+k8s docks : https://docs.google.com/presentation/d/1CxE367sdKW6vqsdN_a08j8QFdvHwWO6a/edit?usp=sharing&ouid=111724459087412187465&rtpof=true&sd=true
+
+Kubernetes was originally developed by Google and is now maintained by the Cloud Native Computing Foundation (CNCF)
+Kubernetes was first anounce in 2014 and made open source in 2015.
+
+Namespace: 
+Lables:
+selector:
+ReplicaSets and Replication Controllers:
+
