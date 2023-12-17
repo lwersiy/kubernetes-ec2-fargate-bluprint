@@ -1,0 +1,1 @@
+# kubernetes-ec2-fargate-bluprint
