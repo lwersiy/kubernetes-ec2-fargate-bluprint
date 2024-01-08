@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
- # - host: example.com
+   - host: unitymedicaltrans.com
    - http:
         paths:
           - path: /

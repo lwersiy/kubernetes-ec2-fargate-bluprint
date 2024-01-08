@@ -54,12 +54,12 @@ spec:
         image: mysql:latest
         env:
           - name: MYSQL_ROOT_PASSWORD
-            value: "Ptwerso1"
+            value: "your-root-password"
           - name: MYSQL_DATABASE
             value: "tower"
           - name: MYSQL_USER
             value: "tower"
           - name: MYSQL_PASSWORD
-            value: "Ptwerso1"
+            value: "your-password"
         ports:
         - containerPort: 3306
